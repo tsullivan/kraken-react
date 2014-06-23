@@ -11,7 +11,7 @@
 	<script src="/js/jquery/jquery.min.js"></script>
 	<script src="/js/showdown/showdown.js"></script>
 </head>
-<body>
+<body data-csrf="<%= _csrf %>">
 	<div id="content"></div>
 
 	<script type="text/jsx">
@@ -62,12 +62,13 @@
 
 			var author = this.refs.author.getDOMNode().value.trim();
 			var text = this.refs.text.getDOMNode().value.trim();
+			var csrf = $('body').data('csrf');
 
 			if (!text || !author) {
 				return false;
 			}
 
-			this.props.onCommentSubmit({author: author, text: text});
+			this.props.onCommentSubmit({author: author, text: text, _csrf: csrf});
 			this.refs.author.getDOMNode().value = '';
 			this.refs.text.getDOMNode().value = '';
 		},

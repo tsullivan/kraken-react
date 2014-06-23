@@ -16,7 +16,7 @@ module.exports = function (router) {
 		res.json(model);
 	});
 
-	router.post('/', function (req, res) {
+	router.post('/comments.json', function (req, res) {
 		res.json({});
 	});
 
