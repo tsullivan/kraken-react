@@ -9,5 +9,10 @@
 	<p>
 		Hello, <%= name %>!
 	</p>
+
+	<form action="" method="post">
+		<input type="hidden" name="_csrf" value="<%= _csrf %>">
+		<input type="submit">
+	</form>
 </body>
 </html>
