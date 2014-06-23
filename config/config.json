@@ -1,36 +1,21 @@
 {
 
+    "view engines": {
+        "html": {
+            "module": "ejs",
+            "renderer": "__express"
+        }
+    },
+
     "express": {
         "view cache": false,
-        "view engine": "js",
+        "view engine": "html",
         "views": "path:./.build/templates"
     },
 
-    "view engines": {
-        "js": {
-            "module": "engine-munger",
-            "renderer": {
-                "method": "js",
-                "arguments": [
-                    { "cache": true },
-                    {
-                        "views": "config:express.views",
-                        "view engine": "config:express.view engine",
-                        "specialization": "config:specialization",
-                        "i18n": "config:i18n"
-                    }
-                ]
-            }
-        }
-    },
-    
 
-    "i18n": {
-        "contentPath": "path:./locales",
-        "fallback": "en-US"
-    },
-    
-    
+    "i18n": null,
+
 
     "middleware": {
 
@@ -46,7 +31,7 @@
             }
         },
 
-        
+
         "expressView": {
             "priority": 100,
             "enabled": true,
@@ -54,7 +39,7 @@
                 "name": "engine-munger/lib/expressView"
             }
         },
-        
+
 
         "fileNotFound": {
             "enabled": true,
