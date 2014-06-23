@@ -69,8 +69,8 @@
 			}
 
 			this.props.onCommentSubmit({author: author, text: text, _csrf: csrf});
-			this.refs.author.getDOMNode().value = '';
 			this.refs.text.getDOMNode().value = '';
+			this.refs.text.getDOMNode().focus();
 		},
 
 		render: function () {
@@ -100,6 +100,12 @@
 		},
 
 		handleCommentSubmit: function (comment) {
+			// tutorial 20
+			var comments = this.state.data;
+			var newComments = comments.concat([comment]);
+			this.setState({data: newComments});
+
+			// tutorial 19
 			$.ajax({
 				url: this.props.url,
 				dataType: 'json',
@@ -120,7 +126,7 @@
 
 		componentWillMount: function () {
 			this.loadCommentsFromServer();
-			//setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+			setInterval(this.loadCommentsFromServer, this.props.pollInterval);
 		},
 
 		render: function() {
