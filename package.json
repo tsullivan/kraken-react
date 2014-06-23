@@ -8,6 +8,7 @@
     "test": "grunt test",
     "start": "node index.js"
   },
+  "repository": "git@github.com:tsullivan/kraken-react.git",
   "dependencies": {
     "adaro": "^0.1.5",
     "ejs": "^1.0.0",
