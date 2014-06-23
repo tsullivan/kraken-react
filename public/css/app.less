@@ -1,0 +1,71 @@
+@TWBS: "../components/bootstrap/less";
+
+// Core variables and mixins
+@import "@{TWBS}/variables.less";
+@import "@{TWBS}/mixins.less";
+
+// Reset
+@import "@{TWBS}/normalize.less";
+@import "@{TWBS}/print.less";
+
+// Core CSS
+@import "@{TWBS}/scaffolding.less";
+@import "@{TWBS}/type.less";
+@import "@{TWBS}/code.less";
+@import "@{TWBS}/grid.less";
+@import "@{TWBS}/tables.less";
+@import "@{TWBS}/forms.less";
+@import "@{TWBS}/buttons.less";
+
+// Utility classes
+@import "@{TWBS}/utilities.less";
+@import "@{TWBS}/responsive-utilities.less";
+
+// App style
+#content {
+	.container();
+}
+
+.comment {
+	.make-row();
+
+	.commentAuthor {
+		.make-xs-column(12);
+		.make-sm-column(3);
+	}
+
+	.commentText {
+		.make-xs-column(12);
+		.make-sm-column(9);
+	}
+}
+
+.commentForm {
+	.form-horizontal();
+
+	p {
+		.form-group();
+	}
+
+	label {
+		.control-label();
+		.make-xs-column(12);
+		.make-sm-column(3);
+	}
+
+	input[type=text],
+	textarea {
+		.make-xs-column(12);
+		.make-sm-column(9);
+		.form-control();
+	}
+
+	input[type=submit] {
+		.make-xs-column(12);
+		.make-sm-column-offset(3);
+		.make-sm-column(9);
+		.btn();
+		.btn-primary();
+	}
+}
+
