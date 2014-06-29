@@ -16,7 +16,12 @@ module.exports = function watch(grunt) {
 		},
 		client: {
 			files: ['public/js/app.js'],
-			tasks: ['jshint:client', 'browserify']
+			// tasks: ['jshint:client', 'browserify']
+			tasks: ['browserify']
+		},
+		react: {
+			files: ['public/js/app.jsx'],
+			tasks: ['react']
 		},
 		styles: {
 			files: ['public/css/app.less'],

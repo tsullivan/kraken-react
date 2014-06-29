@@ -1,19 +1,22 @@
 /**
  * @jsx React.DOM
  */
-// The above declaration must remain intact at the top of the script.
-// Your code here
-var converter = new Showdown.converter();
+
+/* globals document: true */
+
+/* app code below this line */
+'use strict';
+
+var React = require('react'),
+	$ = require('jquery-browserify');
 
 var Comment = React.createClass({
 	render: function () {
-		var rawMarkup = converter.makeHtml(this.props.children.toString());
-
 		return (
-			<div className="comment">
-				<blockquote class="commentText">
-					<span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-					<footer className="commentAuthor">
+			<div className='comment'>
+				<blockquote class='commentText'>
+					{this.props.children}
+					<footer className='commentAuthor'>
 						{this.props.author}
 					</footer>
 				</blockquote>
@@ -29,7 +32,7 @@ var CommentList = React.createClass({
 		});
 
 		return (
-			<div className="commentList">
+			<div className='commentList'>
 				{commentNodes}
 			</div>
 		);
@@ -55,21 +58,21 @@ var CommentForm = React.createClass({
 
 	render: function () {
 		return (
-			<form className="commentForm" onSubmit={this.handleSubmit} role="form">
+			<form className='commentForm' onSubmit={this.handleSubmit} role='form'>
 				<fieldset>
 					<legend>Add a comment</legend>
 					<p>
-						<label for="commentFormName">Your name</label>
-						<input type="text" id="commentFormName" ref="author" />
+						<label for='commentFormName'>Your name</label>
+						<input type='text' id='commentFormName' ref='author' />
 					</p>
 
 					<p>
-						<label for="commentFormText">Say something...</label>
-						<textarea cols="30" rows="10" ref="text"></textarea>
+						<label for='commentFormText'>Say something...</label>
+						<textarea cols='30' rows='10' ref='text'></textarea>
 					</p>
 
 					<p>
-						<input type="submit" value="Post" />
+						<input type='submit' value='Post' />
 					</p>
 				</fieldset>
 			</form>
@@ -121,7 +124,7 @@ var CommentBox = React.createClass({
 
 	render: function() {
 		return (
-			<div className="commentBox">
+			<div className='commentBox'>
 				<h1>Comments</h1>
 				<CommentList data={this.state.data} />
 				<CommentForm onCommentSubmit={this.handleCommentSubmit} />
@@ -131,7 +134,7 @@ var CommentBox = React.createClass({
 });
 
 React.renderComponent(
-	<CommentBox url="comments.json" pollInterval={2000} />,
+	<CommentBox url='comments.json' pollInterval={2000} />,
 	document.getElementById('content')
 );
 

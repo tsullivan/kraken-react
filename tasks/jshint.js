@@ -12,6 +12,9 @@ module.exports = function jshint(grunt) {
 			'lib/**/*.js',
 			'models/**/*.js'
 		],
+		client: [
+			'public/js/app.js'
+		],
 		gruntfile: [
 			'Gruntfile.js',
 			'tasks/*js'
