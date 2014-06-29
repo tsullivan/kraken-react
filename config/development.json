@@ -1,31 +1,30 @@
 {
+  "express": {
+    "views": "path:./public/templates"
+  },
 
-    "express": {
-        "views": "path:./public/templates"
-    },
+  "middleware": {
 
-    "middleware": {
-
-        "devtools": {
-            "enabled": true,
-            "priority": 35,
-            "module": {
-                "name": "kraken-devtools",
-                "arguments": [
-                    "path:./public",
-                    "path:./.build",
-                    {
-                        "css": {
-                            "module": "kraken-devtools/plugins/less",
-                            "files": "/css/**/*.css"
-                        },
-                        "copier": {
-                            "module": "kraken-devtools/plugins/copier",
-                            "files": "**/*"
-                        }
-                    }
-                ]
+    "devtools": {
+      "enabled": true,
+      "priority": 35,
+      "module": {
+        "name": "kraken-devtools",
+        "arguments": [
+          "path:./public",
+          "path:./.build",
+          {
+            "css": {
+              "module": "kraken-devtools/plugins/less",
+              "files": "/css/**/*.css"
+            },
+            "copier": {
+              "module": "kraken-devtools/plugins/copier",
+              "files": "**/*"
             }
-        }
+          }
+        ]
+      }
     }
+  }
 }

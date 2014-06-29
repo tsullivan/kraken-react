@@ -25,7 +25,7 @@ var Comment = React.createClass({
 var CommentList = React.createClass({
 	render: function () {
 		var commentNodes = this.props.data.map(function (comment) {
-			return <Comment author={comment.author}>{comment.text}</Comment>
+			return <Comment author={comment.author}>{comment.text}</Comment>;
 		});
 
 		return (
@@ -104,7 +104,7 @@ var CommentBox = React.createClass({
 			success: function (data) {
 				this.setState({data: data});
 			}.bind(this),
-			error: function (err) {
+			error: function (err, status) {
 				console.error(this.props.url, status, err.toString());
 			}.bind(this)
 		});
