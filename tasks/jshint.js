@@ -7,13 +7,17 @@ module.exports = function jshint(grunt) {
 
 	// Options
 	return {
-		files: [
-            'controllers/**/*.js',
-            'lib/**/*.js',
-            'models/**/*.js'
-        ],
+		server: [
+			'controllers/**/*.js',
+			'lib/**/*.js',
+			'models/**/*.js'
+		],
+		gruntfile: [
+			'Gruntfile.js',
+			'tasks/*js'
+		],
 		options: {
-		    jshintrc: '.jshintrc'
+			jshintrc: '.jshintrc'
 		}
 	};
 };
