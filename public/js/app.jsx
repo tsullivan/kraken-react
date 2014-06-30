@@ -14,9 +14,11 @@ var Comment = React.createClass({
 	render: function () {
 		return (
 			<div className='comment'>
-				<blockquote class='commentText'>
-					{this.props.children}
-					<footer className='commentAuthor'>
+				<blockquote>
+					<p>
+						{this.props.children}
+					</p>
+					<footer>
 						{this.props.author}
 					</footer>
 				</blockquote>
@@ -62,13 +64,13 @@ var CommentForm = React.createClass({
 				<fieldset>
 					<legend>Add a comment</legend>
 					<p>
-						<label for='commentFormName'>Your name</label>
+						<label htmlFor='commentFormName'>Your name</label>
 						<input type='text' id='commentFormName' ref='author' />
 					</p>
 
 					<p>
-						<label for='commentFormText'>Say something...</label>
-						<textarea cols='30' rows='10' ref='text'></textarea>
+						<label htmlFor='commentFormText'>Say something...</label>
+						<input type='text' id='commentFormText' ref='text' />
 					</p>
 
 					<p>
