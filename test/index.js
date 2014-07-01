@@ -30,12 +30,12 @@ describe('/', function () {
     });
 
 
-    it('should say "hello"', function (done) {
+    it('should create a #content div', function (done) {
         request(mock)
             .get('/')
             .expect(200)
             .expect('Content-Type', /html/)
-            .expect(/Hello, /)
+            .expect(/<div id="content">/)
             .end(function (err, res) {
                 done(err);
             });
